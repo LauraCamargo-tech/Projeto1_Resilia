@@ -1,9 +1,6 @@
 from time import sleep
 
-# def linha (tam = 70 ): #deseja uma linha na tela, com valor padrão de 42
-#     return '-'*tam     # desenha essa - vezes a quantidade informada ou usa o padrão definido
-
-def finalizar():
+def finalizar(): # Função responsável por parar o programa / finalizar atendimento
     resetar = int(input('Selecione:\n[1] Resetar o atendimento\n[2] Finalizar o atendimento\n'))
     if resetar == 1:
         return True
@@ -12,9 +9,10 @@ def finalizar():
     else:
         print('Insira uma opção válida!')
         sleep(1/2)
-        finalizar()
+        if finalizar() == False:
+            return False
 
-def consulta():
+def consulta(): # Função referente a opção [2] Consultar as próximas viagens disponíveis
 
     nacionalidade = int(input('Que tipo de viagem você deseja realizar?\n[1] Nacional\n[2] Internacional \n[3] Sair\n'))
     if nacionalidade == 3:
@@ -25,17 +23,19 @@ def consulta():
         return False
     sleep(1/2)
 
-    if nacionalidade == 1:
+    # Bloco1 - Nesse bloco condicional ele checa se a opção de viagem escolhida é nacional ou internacional.
+    if nacionalidade == 1: 
 
+            #Bloco2.1 - Nesse bloco condicional ele checa se o tempo da viagem (NACIONAL) escolhido, é dentro de 6 meses, dentro 1 ano ou mais de um ano e oferece as opções disponíveis.            
         if tempo == 1:
             nacional_6 = int(input('Próximas viagens nacionais disponíveis dentro de 6 meses: \n\n[1] Porto de Galinhas - Pernambuco ---------- R$999\n[2] Foz do Iguaçu - Paraná ------------------ R$849\n'))
-
+            #Bloco 3.1 - Nesse bloco, ele oferece informações sobre o pacote escolhido
             if nacional_6 == 1:
                 print('o pacote Porto de Galinhas - Pernambuco vem incluso Hospedagem, Café da manhã e a passagem aérea, o preço é individual e referente a 3 diárias, podendo ser aumentada para 5 ou 7.\n')
-                fim = finalizar()
-                if fim == False:
+                fim = finalizar()  # Bloco 4 - Nesse bloco, ele checa se o usuário quer finalizar o programa, caso a resposta seja positiva, ele encerra o atendimento.
+                if fim == False: 
                     return False
-
+            
             elif nacional_6 == 2:
                 print('o pacote Foz do Iguaçu - Paraná vem incluso Hospedagem, Café da manhã e a passagem aérea, o preço é individual e referente a 3 diárias, podendo ser aumentada para 5 ou 7.\n')
                 fim = finalizar()
@@ -43,7 +43,8 @@ def consulta():
                     return False
             else:
                 print('Por favor, selecione um pacote válido!')
-    
+
+            # A partir daqui, o processo se repete a partir do Bloco 2.1, mudando apenas as informações.
         elif tempo == 2:
             nacional_12 = int(input('Próximas viagens nacionais disponíveis dentro de 1 ano: \n\n[1] Chapada dos Guimarães - Mato Grosso --- R$659\n[2] Beto Carrero World - Santa Catarina --- R$769\n[3] Recife - Pernambuco ------------------- R$399\n'))
 
@@ -66,7 +67,8 @@ def consulta():
                     return False
             else:
                 print('Por favor, selecione um pacote válido!')
-        
+
+           
         elif tempo == 3:
 
             nacional_12mais = int(input('Próximas viagens nacionais disponíveis para mais de 1 ano: \n\n[1] Jericoacoara + Fortaleza - Ceará ------- R$799\n'))
@@ -77,11 +79,12 @@ def consulta():
                 if fim == False:
                     return False
 
+            
         else:
             print('Por favor, selecione uma data válida!')
             consulta()
 
-
+    # Bloco1
     elif nacionalidade == 2:
 
         if tempo == 1:
@@ -124,7 +127,7 @@ def consulta():
                     return False
             else:
                 print('Por favor, selecione um pacote válido!')
-            
+
         elif tempo == 3:
 
             internacional_12mais = int(input('Próximas viagens internacionais disponíveis para mais de 1 ano: \n\n[1] Las Vegas - Estados Unidos -------- R$2749\n'))
@@ -136,46 +139,12 @@ def consulta():
                     return False
             else:
                 print('Por favor, selecione um pacote válido!')
-                    
+
         else:
             print('Por favor, selecione uma data válida!')
             consulta()
-
+    # Bloco1
     else:
         print('Opção de viagem não disponível, por favor, escolha outra!')
         sleep(1/2)
         consulta()
-
-def duvidas():
-        print('\n[1] Hospedagem? \n[2] Viagem? \n[3] Sair\n')
-        opcao = int(input('Digite qual tipo da sua duvida :  '))
-        if opcao == 1:
-            print('\n[1] Qual meu hotel e quarto ?\n[2] Qual valor da diária?\n[3]Como cancelar minha hospedagem ?\n[4]Voltar ao Menu inicial\n')
-            opcao = int(input('Digite a opção que representa sua dúvida :  '))
-            if opcao == 1 :
-                site = 'https://suaviagemresilia.com/reserva/'
-                print(f'\nFaça seu login em {site}, em seu perfil encontrara o hotel e quarto escolhidos\n' )
-            elif opcao == 2:
-                site = 'https://suaviagemresilia.com/reserva/diária'
-                print(f'\nFaça seu login em {site}, em seu perfil encontrara o valor da diária\n' )
-            elif opcao == 3:
-                site = 'https://suaviagemresilia.com/reserva/cancelamento'
-                print(f'\nFaça seu login em {site}, em seu perfil encontrara a opçao de cancelamento\n' )
-            else:
-                return False
-            sleep(1/2)
-        elif opcao == 2:
-            print('\n[1] Qual horário do meu voo ?\n[2] Como reservar uma passagem aerea?\n[3]Posso transportar animais ?\n[4]Voltar ao Menu inicial\n')
-            opcao = int(input('Digite a opção que representa sua dúvida :  '))
-            if opcao == 1 :
-                site = 'https://suaviagemresilia.com/horário/'
-                print(f'\nFaça seu login em {site}, em seu perfil encontrara o horário de seu voo\n' )
-            elif opcao == 2:
-                site = 'https://suaviagemresilia.com/passagem/'
-                print(f'\nAtravés de nosso site: {site}, encontrara varias opções e seus respectivos valores\n' )
-            elif opcao == 3:
-                site = 'https://suaviagemresilia.com/reserva/cancelamento'
-                print(f'O transporte de animais domésticos, tais como cachorros e gatos, deve autorizá-lo a companhia aérea. Consulte as condições da companhia no ato da reserva\n' )
-            else:
-                return False
-

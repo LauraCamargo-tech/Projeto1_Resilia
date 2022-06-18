@@ -20,6 +20,8 @@ Nosso projeto traz um atendimento automatico de uma empresa aérea fictícia par
 ~~~nome
 Resilia linhas aéreas
 ~~~
+Nós acreditamos que a vida deve ser vivida, e para a vida ser vivida, não pode ser "pé no chão" todos os momentos, para isso que nós existimos, existimos para facilitar todo o seu processo de viagem e realizar sonhos, então tire os pés do chão e sonhe alto, sonhe acima das nuvens, acesse os nosso pacotes de viagem e sonhe conosco!
+
 
 ###### Fluxo de funcionamento
 ~~~fluxo

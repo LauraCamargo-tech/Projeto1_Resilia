@@ -1,7 +1,8 @@
 from time import sleep
-import viagens_módulo_1 as viagens
-from Informações_módulo_1 import informacao
-from Dúvidas_módulo_1 import duvidas
+import viagens_modulo_1 as viagens
+from Informacoes_modulo_1 import informacao
+from Duvidas_modulo_1 import duvidas
+from Pacotes_adicionais_modulo_1 import adicionais
 
 print('')
 print('Olá! seja bem vindo(a)....')
@@ -29,7 +30,11 @@ while loop == True:
             sleep(1)
             loop = False
     elif opcao == 4:
-        print('b')  # Aqui entra uma estrutura condicional referente as opções Pacotes Adicionais [4]
+        adicionais()  # Amanda
+        if viagens.finalizar() == False: 
+            print('Atendimento cancelado.')
+            sleep(1)
+            loop = False
     elif opcao == 5:
         print('Muito obrigado por entrar em contato!')
         loop = False
